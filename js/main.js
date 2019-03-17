@@ -114,3 +114,23 @@ console.log(mathOperation(a,b,getRandomInt(1,4)));
 // 6
 
 console.log("\n   < Task 6 >  ");
+
+function power(val,pow) {
+    val = Number(val);
+    pow = Number(pow);
+    if (val < 0) val *= -1;
+    if (pow < 0) pow *= -1;
+
+    if (pow === 0) return 1;
+    else return val * power(val, pow-1);
+}
+
+/*
+alert(power(
+    prompt("Введите число: "),
+    prompt("Введите степень: ")
+));
+console.log("> Answer alerted <")
+*/
+
+console.log(power(a,b));
