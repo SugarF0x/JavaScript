@@ -31,8 +31,8 @@ function getRandomInt(min, max) {
 a = getRandomInt(-9,9);
 b = getRandomInt(-9,9);
 
-console.log("Generated a: "+a);
-console.log("Generated b: "+b);
+console.log("> Generated a: "+a);
+console.log("> Generated b: "+b);
 
 if (a >=0 && b >= 0) {
     console.log(a-b);
@@ -72,3 +72,45 @@ console.log(arDiv(a,b));
 // 5
 
 console.log("\n   < Task 5 >  ");
+
+function mathOperation(art1,art2,operation) {
+    art1 = Number(art1);
+    art2 = Number(art2);
+    operation = Number(operation);
+    switch (operation) {
+        case 1: {
+            return art1+art2;
+        }
+        case 2: {
+            return art1-art2;
+        }
+        case 3: {
+            return art1*art2;
+        }
+        case 4: {
+            return art1/art2;
+        }
+        default: {
+            return '> Введена некорректная операция <'
+        }
+    }
+}
+
+// You can use this one instead if you want to manually insert values
+// The currently used function takes random numbers yet again and shoved the answer into the console
+// (not a big fan of popup prompts all over teh screen)
+
+/*
+alert(mathOperation(
+    prompt('Введите первый аргумент: '),
+    prompt('Введите второй аргумент: '),
+    prompt('Введите операцию (1 - сложение, 2 - вычитание, 3 - умножение, 4 - деление): ')
+));
+console.log("> Answer alerted <")
+*/
+
+console.log(mathOperation(a,b,getRandomInt(1,4)));
+
+// 6
+
+console.log("\n   < Task 6 >  ");
