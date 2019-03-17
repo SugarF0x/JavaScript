@@ -134,3 +134,9 @@ console.log("> Answer alerted <")
 */
 
 console.log(power(a,b));
+
+// 7
+
+console.log("\n   < Task 7 >  ");
+
+console.log("Yeah, aint doing that ><");
