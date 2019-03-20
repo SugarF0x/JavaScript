@@ -40,3 +40,8 @@ cartCountPrice(cart);
 
 // 3
 console.log("    > Task 3 <     ");
+
+for(let i = 0; i <= 9; console.log(i++)) {}
+
+// 4
+console.log("    > Task 4 <     ");
