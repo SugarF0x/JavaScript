@@ -16,5 +16,27 @@ console.log(b);
 // 2
 console.log("    > Task 2 <     ");
 
+let cart = [];
+let cartTotalPrice;
 
+function cartAdd (item, price) {
+    cart.push({item: item, price: price})
+}
 
+function cartCountPrice (cart) {
+    cartTotalPrice = 0;
+    cart.forEach(function(it) {
+        cartTotalPrice += it.price;
+    });
+
+    console.log("Total cart price is: ", cartTotalPrice);
+}
+
+//
+
+cartAdd('salad',20);
+cartAdd('ass',1488);
+cartCountPrice(cart);
+
+// 3
+console.log("    > Task 3 <     ");
