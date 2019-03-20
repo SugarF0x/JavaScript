@@ -45,3 +45,11 @@ for(let i = 0; i <= 9; console.log(i++)) {}
 
 // 4
 console.log("    > Task 4 <     ");
+
+for (let row = 1; row <= 20; row++) {
+    let stars = "";
+    for (let column = 1; column <= row; column++) {
+        stars += "*";
+    }
+    console.log(stars);
+}
