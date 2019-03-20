@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="481">
+              <caret line="54" column="1" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -53,7 +53,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JavaScript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaScript" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaScript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaScript" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -84,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553100995699</updated>
-      <workItem from="1553100997001" duration="2482000" />
+      <workItem from="1553100997001" duration="2531000" />
     </task>
     <task id="LOCAL-00001" summary="Made some rearrangements in phphstorm, the new files are just it's workspace">
       <created>1553101097751</created>
@@ -114,11 +129,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553103150065</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Removed everything from master branch as I forgot to do it form the start&#10;&#10;again">
+      <created>1553103510927</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553103510927</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2482000" />
+    <option name="totallyTimeSpent" value="2531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -180,7 +202,8 @@
     <MESSAGE value="Task 2 finished&#10;That was a wacky experience, though, i think, i got the hang of them arrays" />
     <MESSAGE value="Task 3 finished&#10;The one with the star, though, was by far the easiest" />
     <MESSAGE value="Task 4 finished&#10;So, the hardest part turned out to be Task 2, cuz i never actually got to finish it propery - didn't even work our for me the way it was supposed to&#10;&#10;I did find some wacky functions on stackoverflow of how to properly copy arrays and objects, when it comes to that, but it was nothing near to what was shown to us during the class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task 4 finished&#10;So, the hardest part turned out to be Task 2, cuz i never actually got to finish it propery - didn't even work our for me the way it was supposed to&#10;&#10;I did find some wacky functions on stackoverflow of how to properly copy arrays and objects, when it comes to that, but it was nothing near to what was shown to us during the class" />
+    <MESSAGE value="Removed everything from master branch as I forgot to do it form the start&#10;&#10;again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed everything from master branch as I forgot to do it form the start&#10;&#10;again" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/styles/main.less">
@@ -188,8 +211,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="481">
+          <caret line="54" column="1" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
         </state>
       </provider>
     </entry>
