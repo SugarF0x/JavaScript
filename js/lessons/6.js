@@ -91,11 +91,16 @@ let cart = {
         return  '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                        '<td>Товар</td>' +
-                        '<td>Стоимость</td>' +
-                        '<td>Всего</td>' +
+                            '<td>Товар</td>' +
+                            '<td>Стоимость</td>' +
+                            '<td>Всего</td>' +
                         '</tr>' +
                         board +
+                        '<tr>' +
+                            '<td>' + 'Всего:</td>' +
+                            '<td>' +  this.getPriceTotal() + '</td>' +
+                            '<td>' + this.getAmountTotal() + '</td>' +
+                        '</tr>' +
                     '</tbody>' +
                 '</table>';
     },
