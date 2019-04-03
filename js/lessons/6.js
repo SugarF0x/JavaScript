@@ -2,8 +2,8 @@
 
 function addCss(fileName) {
 
-    var head = document.head;
-    var link = document.createElement("link");
+    let head = document.head;
+    let link = document.createElement("link");
 
     link.type = "text/css";
     link.rel = "stylesheet";
