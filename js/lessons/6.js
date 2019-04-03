@@ -77,22 +77,27 @@ let cart = {
     },
 
     generateTable() {
-        let tdStyle = 'style="border: 1px solid black; padding: 3px;">';
-
         if (this.items.length === 0) return "Корзина пуста";
 
         let board = '';
 
         for (let y = 0; y <= this.items.length-1; y++) {
             board += '<tr>';
-            board += '<td ' + tdStyle + this.items[y].name + '</td>';
-            board += '<td ' + tdStyle + this.items[y].price + '</td>';
-            board += '<td ' + tdStyle + this.items[y].amount + '</td>';
+            board += '<td>' + this.items[y].name + '</td>';
+            board += '<td>' + this.items[y].price + '</td>';
+            board += '<td>' + this.items[y].amount + '</td>';
             board += '</tr>';
         }
-        return '<table style="border: 2px solid black; border-collapse: collapse;"><tbody><tr><td ' + tdStyle + 'Товар</td><td ' + tdStyle + 'Стоимость</td><td ' + tdStyle + 'Количество</td></tr>' +
-            board +
-            '<tr><td ' + tdStyle + 'Всего:</td><td ' + tdStyle +  this.getPriceTotal() + '</td><td ' + tdStyle + this.getAmountTotal() + '</td></tr></tbody></table>';
+        return  '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                        '<td>Товар</td>' +
+                        '<td>Стоимость</td>' +
+                        '<td>Всего</td>' +
+                        '</tr>' +
+                        board +
+                    '</tbody>' +
+                '</table>';
     },
 
     render() {
@@ -119,3 +124,4 @@ function addCss(fileName) {
 
 addCss('styles/lessons/6.css');
 goods.render();
+cart.render();
