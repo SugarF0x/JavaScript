@@ -12,9 +12,9 @@ function addCss(fileName) {
     head.appendChild(link);
 }
 
-addCss('styles/lessons/6.js');
+addCss('styles/lessons/6.css');
 
-//
+//--------------------------------------------------------------------------------------------------------------------\\
 
 let goods = {
     goodList: [
@@ -28,11 +28,31 @@ let goods = {
     ],
 
     generate() {
+        let board = '';
 
+        for (let y = 0; y <= this.goodList.length-1; y++) {
+            board += '<tr>';
+            board += '<td>' + this.goodList[y].name + '</td>';
+            board += '<td>' + this.goodList[y].price + '</td>';
+            board += '<td><button class="buy">Купить</button></td>';
+            board += '</tr>';
+        }
+
+        return  '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td>Товар</td>' +
+                            '<td>Стоимость</td>' +
+                            '<td></td>' +
+                        '</tr>' +
+                        board +
+                    '</tbody>' +
+                '</table>';
     },
 
     render() {
-
+        let table = this.generate();
+        document.body.insertAdjacentHTML('beforeend', table);
     }
 };
 
@@ -94,3 +114,7 @@ let cart = {
         document.body.insertAdjacentHTML('beforeend', table);
     }
 };
+
+//--------------------------------------------------------------------------------------------------------------------\\
+
+goods.render();
