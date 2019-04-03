@@ -20,7 +20,7 @@ let goods = {
             board += '<tr>';
             board += '<td>' + this.goodList[y].name + '</td>';
             board += '<td>' + this.goodList[y].price + '</td>';
-            board += '<td><button class="buy" onclick="cart.add(goods.goodList[' + y + ']);">Купить</button></td>';
+            board += '<td><button class="buy" onclick="cart.add(goods.goodList[' + y + ']); cart.update()">Купить</button></td>';
             board += '</tr>';
         }
 
@@ -77,7 +77,7 @@ let cart = {
     },
 
     generateTable() {
-        if (this.items.length === 0) return "Корзина пуста";
+        if (this.items.length === 0) return "<div id='cart'>Корзина пуста</div>";
 
         let board = '';
 
@@ -88,7 +88,7 @@ let cart = {
             board += '<td>' + this.items[y].amount + '</td>';
             board += '</tr>';
         }
-        return  '<table>' +
+        return  '<table id="cart">' +
                     '<tbody>' +
                         '<tr>' +
                             '<td>Товар</td>' +
@@ -108,6 +108,12 @@ let cart = {
     render() {
         let table = this.generateTable();
         document.body.insertAdjacentHTML('beforeend', table);
+    },
+
+    update() {
+        let table = document.getElementById('cart');
+        table.remove();
+        this.render();
     }
 };
 
