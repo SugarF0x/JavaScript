@@ -1,19 +1,5 @@
 "use strict";
 
-function addCss(fileName) {
-
-    let head = document.head;
-    let link = document.createElement("link");
-
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = fileName;
-
-    head.appendChild(link);
-}
-
-addCss('styles/lessons/6.css');
-
 //--------------------------------------------------------------------------------------------------------------------\\
 
 let goods = {
@@ -34,7 +20,7 @@ let goods = {
             board += '<tr>';
             board += '<td>' + this.goodList[y].name + '</td>';
             board += '<td>' + this.goodList[y].price + '</td>';
-            board += '<td><button class="buy">Купить</button></td>';
+            board += '<td><button class="buy" onclick="cart.add(goods.goodList[' + y + ']);">Купить</button></td>';
             board += '</tr>';
         }
 
@@ -117,4 +103,19 @@ let cart = {
 
 //--------------------------------------------------------------------------------------------------------------------\\
 
+function addCss(fileName) {
+
+    let head = document.head;
+    let link = document.createElement("link");
+
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = fileName;
+
+    head.appendChild(link);
+}
+
+//--------------------------------------------------------------------------------------------------------------------\\
+
+addCss('styles/lessons/6.css');
 goods.render();
