@@ -62,13 +62,13 @@ let render = {
         }
     },
 
-    snake(point) {
+    snake(point = snake.body) {
         point.forEach((point,idx) => {
             this.cells[`x${point.x}_y${point.y}`].classList.add(idx === 0 ? 'snakeHead' : 'snakeBody');
         })
     },
 
-    food(point) {
+    food(point = food.point) {
         this.cells[`x${point.x}_y${point.y}`].classList.add('food');
     },
 
@@ -78,7 +78,7 @@ let render = {
         }
     },
 
-    objects(snakePoint, foodPoint) {
+    objects(snakePoint = snake.body, foodPoint = food.point) {
         this.clear();
         this.snake(snakePoint);
         this.food(foodPoint);
@@ -172,5 +172,5 @@ let game = {
 
 addCss("styles/lessons/7.css");
 window.onload = function () {
-    game.init({speed:3,winLength:10});
+    game.init();
 };
