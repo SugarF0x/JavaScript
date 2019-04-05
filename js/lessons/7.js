@@ -44,7 +44,7 @@ let config = {
 let render = {
     cells: {},
 
-    map(rowsCount, colsCount) {
+    map(rowsCount = config.rowsCount, colsCount = config.colsCount) {
         let table = document.getElementById('game');
         table.innerText = '';
 
@@ -86,16 +86,36 @@ let render = {
 };
 
 let snake = {
-    body: null,
+    body:      null,
     direction: null,
+    //isMove:    false,
 
-    init(startPoint, direction) {
+    init(startPoint = {x:0,y:0}, direction = "right") {
         this.body = [startPoint];
         this.direction = direction;
     },
 
-    move() {
+    getMovePoint(head = this.body[0]) {
+        switch (this.direction) {
+            case 'up'   : return {x: head.x  , y: head.y-1};
+            case 'right': return {x: head.x+1, y: head.y  };
+            case 'down' : return {x: head.x  , y: head.y+1};
+            case 'left' : return {x: head.x-1, y: head.y-1};
+        }
+    },
 
+    move() {
+        this.body.unshift(this.getMovePoint());
+
+        /*
+        if (isGrow) {
+            isGrow = false;
+        } else {
+            this.body.pop();
+        }
+        */
+
+        this.body.pop();
     },
 
     grow() {
@@ -137,6 +157,8 @@ let game = {
     snake,
     food,
 
+    tick: null,
+
     getSnakeStartPoint() {
         return {
             x: Math.floor(this.config.colsCount / 2),
@@ -155,17 +177,28 @@ let game = {
                 '<table id="game"></table>' +
                     '</div>' +
                     '<div id="menu">' +
-                    '<div id="playButton" class="menuButton">Старт</div>' +
-                    '<div id="newGameButton" class="menuButton">Новая игра</div>' +
+                    '<div id="playButton" class="menuButton" onclick="game.play()">Старт</div>' +
+                    '<div id="newGameButton" class="menuButton" onclick="game.stop()">Новая игра</div>' +
                 '</div>';
         document.body.insertAdjacentHTML('beforeend', gameDivs);
 
         this.snake.init(this.getSnakeStartPoint(),"up");
         this.food.generate();
 
-        this.render.map(this.config.rowsCount,this.config.colsCount);
-        this.render.objects(this.snake.body, this.food.point);
-    }
+        this.render.map();
+        this.render.objects();
+    },
+
+    play() {
+        this.tick = setInterval(function() {
+            game.snake.move();
+            game.render.objects();
+        }, Math.floor(1000/this.config.speed));
+    },
+
+    stop() {
+        clearInterval(this.tick)
+    },
 };
 
 //- main -\\ ---------------------------------------------------------------------------------------------------------\\
