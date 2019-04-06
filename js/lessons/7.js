@@ -88,7 +88,6 @@ let render = {
 let snake = {
     body:      null,
     direction: null,
-    //isMove:    false,
 
     init(startPoint = {x:0,y:0}, direction = "right") {
         this.body = [startPoint];
@@ -100,26 +99,37 @@ let snake = {
             case 'up'   : return {x: head.x  , y: head.y-1};
             case 'right': return {x: head.x+1, y: head.y  };
             case 'down' : return {x: head.x  , y: head.y+1};
-            case 'left' : return {x: head.x-1, y: head.y-1};
+            case 'left' : return {x: head.x-1, y: head.y  };
         }
     },
 
     move() {
+        if (!this.isMovePossible()) {
+            game.state.set.finish();
+            game.finish();
+            return false;
+        }
+
         this.body.unshift(this.getMovePoint());
 
-        /*
-        if (isGrow) {
-            isGrow = false;
+        if (this.eat()) {
+            game.food.generate();
         } else {
             this.body.pop();
         }
-        */
-
-        this.body.pop();
     },
 
-    grow() {
+    eat() {
+        return JSON.stringify(game.snake.body[0]) === JSON.stringify(game.food.point);
+    },
 
+    isMovePossible() {
+        return (
+            this.getMovePoint().x <= game.config.colsCount-1 &&
+            this.getMovePoint().y <= game.config.rowsCount-1 &&
+            this.getMovePoint().x >= 0                       &&
+            this.getMovePoint().y >= 0
+        );
     }
 };
 
@@ -151,11 +161,30 @@ let food = {
     }
 };
 
+let state = {
+    condition: null,
+
+    set: {
+        play()   {state.condition = 'playing' ;},
+        stop()   {state.condition = 'stopped' ;},
+        finish() {state.condition = 'finished';}
+    },
+
+    isPlaying() {
+        return this.condition === 'playing';
+    },
+
+    isStopped() {
+        return this.condition === 'stopped';
+    }
+};
+
 let game = {
     config,
     render,
     snake,
     food,
+    state,
 
     tick: null,
 
@@ -172,24 +201,28 @@ let game = {
            return false;
         }
 
-        let gameDivs =
-            '<div id="game-wrap">' +
-                '<table id="game"></table>' +
-                    '</div>' +
-                    '<div id="menu">' +
-                    '<div id="playButton" class="menuButton" onclick="game.play()">Старт</div>' +
-                    '<div id="newGameButton" class="menuButton" onclick="game.stop()">Новая игра</div>' +
+        if (document.getElementById('game-wrap') === null) {
+            let gameDivs =
+                '<div id="game-wrap">' +
+                    '<table id="game"></table>' +
+                '</div>' +
+                '<div id="menu">' +
+                    '<div id="playButton" class="menuButton" onclick="game.playButton()">Старт</div>' +
+                    '<div id="newGameButton" class="menuButton" onclick="game.init()">Новая игра</div>' +
                 '</div>';
-        document.body.insertAdjacentHTML('beforeend', gameDivs);
+            document.body.insertAdjacentHTML('beforeend', gameDivs);
+        }
 
         this.snake.init(this.getSnakeStartPoint(),"up");
         this.food.generate();
+        this.state.set.stop();
 
         this.render.map();
         this.render.objects();
     },
 
     play() {
+        this.state.set.play();
         this.tick = setInterval(function() {
             game.snake.move();
             game.render.objects();
@@ -197,8 +230,29 @@ let game = {
     },
 
     stop() {
-        clearInterval(this.tick)
+        this.state.set.stop();
+        clearInterval(this.tick);
     },
+
+    finish() {
+        this.state.set.finish();
+        clearInterval(this.tick);
+        let playText = document.getElementById('playButton');
+        playText.innerText = 'Конец';
+        playText.removeAttribute('onclick');
+    },
+
+    playButton() {
+        let playText = document.getElementById('playButton');
+
+        if (game.state.isPlaying()) {
+            this.stop();
+            playText.innerText = 'Старт';
+        } else if (game.state.isStopped()) {
+            this.play();
+            playText.innerText = 'Стоп';
+        }
+    }
 };
 
 //- main -\\ ---------------------------------------------------------------------------------------------------------\\
