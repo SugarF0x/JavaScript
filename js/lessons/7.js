@@ -134,6 +134,12 @@ let snake = {
             this.getMovePoint(point).x >= 0                       &&
             this.getMovePoint(point).y >= 0
         );
+        /*
+                TODO - Function check if no wall
+             add some code that will make isMovePossible return <false> if there is a wall in the way
+             walls are cells produced by multiCell Object via drawWall() function
+             they stay there like that until the game ends
+         */
     },
 
     isDirChangeable(dir) {
@@ -183,9 +189,36 @@ let state = {
     },
 
     isStopped() {
-        return this.condition === 'stopped';
+        return this.condition === 'stopped' || this.condition === 'finished';
     }
 };
+
+/*
+        TODO - Object multiCell
+    add multi-cell object as a final goal for the snake to draw
+    drawing is performed when the snake's tail reaches a cell, required for completion
+    the tail is cut off, but it stays in that cell, coloring it gray as walled off and no longer accessible
+ */
+
+/*
+        TODO - Object settings
+    add a settings window to the left of snake grid
+    it is placed in #game-wrap before #game
+    one will see there all the options with <+> and <-> by them
+    pressing the buttons will change the values displayed for each configuration field
+    at the bottom there should be an <Apply> button that triggers <game.init()> with user-selected arguments
+    main init() function renders and should be called in game.init()
+    the buttons are disabled while the game is running or paused
+    (only enabled when state.condition === 'finished', which it is by default after game.init())
+ */
+
+/*
+        TODO - Object score
+    add score table to the right of snake grid
+    it is placed in #game-wrap after #game
+    this one is pretty much self-explanatory
+    main init() function renders and should be called in game.init()
+ */
 
 let game = {
     config,
@@ -265,7 +298,7 @@ let game = {
 
         this.snake.init(this.getSnakeStartPoint(),"up");
         this.food.generate();
-        this.state.set.stop();
+        this.state.set.finish();
         document.addEventListener('keydown', () => this.keyDownHandler(event));
 
         this.render.map();
@@ -298,5 +331,5 @@ let game = {
 
 addCss("styles/lessons/7.css");
 window.onload = function () {
-    game.init();
+    game.init({speed: 4});
 };
