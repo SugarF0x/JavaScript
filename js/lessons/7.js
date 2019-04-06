@@ -94,8 +94,8 @@ let snake = {
         this.direction = direction;
     },
 
-    getMovePoint(head = this.body[0]) {
-        switch (this.direction) {
+    getMovePoint(head = this.body[0], dir = this.direction) {
+        switch (dir) {
             case 'up'   : return {x: head.x  , y: head.y-1};
             case 'right': return {x: head.x+1, y: head.y  };
             case 'down' : return {x: head.x  , y: head.y+1};
@@ -123,13 +123,21 @@ let snake = {
         return JSON.stringify(game.snake.body[0]) === JSON.stringify(game.food.point);
     },
 
-    isMovePossible() {
+    changeDirection(direct) {
+        if (['up','right','down','left'].includes(direct)) this.direction = direct;
+    },
+
+    isMovePossible(point) {
         return (
-            this.getMovePoint().x <= game.config.colsCount-1 &&
-            this.getMovePoint().y <= game.config.rowsCount-1 &&
-            this.getMovePoint().x >= 0                       &&
-            this.getMovePoint().y >= 0
+            this.getMovePoint(point).x <= game.config.colsCount-1 &&
+            this.getMovePoint(point).y <= game.config.rowsCount-1 &&
+            this.getMovePoint(point).x >= 0                       &&
+            this.getMovePoint(point).y >= 0
         );
+    },
+
+    isDirChangeable(dir) {
+        return JSON.stringify(this.getMovePoint(this.body[0], dir)) !== JSON.stringify(this.body[1]);
     }
 };
 
@@ -195,6 +203,48 @@ let game = {
         }
     },
 
+    getDirectionByCode(code) {
+        switch(code) {
+            case 'KeyW':
+            case 'ArrowUp':
+                return 'up';
+
+            case 'KeyD':
+            case 'ArrowRight':
+                return 'right';
+
+            case 'KeyS':
+            case 'ArrowDown':
+                return 'down';
+
+            case 'KeyA':
+            case 'ArrowLeft':
+                return 'left';
+
+            default:
+                return 'NaD';
+        }
+    },
+
+    keyDownHandler(event) {
+        let direction = this.getDirectionByCode(event.code);
+        if (direction !== "NaD" && this.snake.isDirChangeable(direction)) {
+            this.snake.changeDirection(direction);
+        }
+    },
+
+    playButton() {
+    let playText = document.getElementById('playButton');
+
+    if (game.state.isPlaying()) {
+        this.stop();
+        playText.innerText = 'Старт';
+    } else if (game.state.isStopped()) {
+        this.play();
+        playText.innerText = 'Стоп';
+    }
+},
+
     init(userConfig = {}) {
         Object.assign(this.config, userConfig);
         if (!this.config.validate()) {
@@ -216,6 +266,7 @@ let game = {
         this.snake.init(this.getSnakeStartPoint(),"up");
         this.food.generate();
         this.state.set.stop();
+        document.addEventListener('keydown', () => this.keyDownHandler(event));
 
         this.render.map();
         this.render.objects();
@@ -240,18 +291,6 @@ let game = {
         let playText = document.getElementById('playButton');
         playText.innerText = 'Конец';
         playText.removeAttribute('onclick');
-    },
-
-    playButton() {
-        let playText = document.getElementById('playButton');
-
-        if (game.state.isPlaying()) {
-            this.stop();
-            playText.innerText = 'Старт';
-        } else if (game.state.isStopped()) {
-            this.play();
-            playText.innerText = 'Стоп';
-        }
     }
 };
 
