@@ -11,10 +11,10 @@ const
     MIN_WIN_SIZE   = 5;
 
 let config = {
-    rowsCount:  21,
-    colsCount:  21,
-    speed:      2,
-    winLength:  50,
+    rowsCount: 21,
+    colsCount: 21,
+    speed: 2,
+    winLength: 50,
 
     validate() {
         if (this.rowsCount <= MIN_MAP_SIZE || this.rowsCount >= MAX_MAP_SIZE) {
@@ -38,6 +38,24 @@ let config = {
         }
 
         return true;
+    },
+
+    inc(set) {
+        switch(set) {
+            case 0: if (this.rowsCount+1 <= MAX_MAP_SIZE)   this.rowsCount++; return true;
+            case 1: if (this.colsCount+1 <= MAX_MAP_SIZE)   this.colsCount++; return true;
+            case 2: if (this.speed+1     <= MAX_SPEED_SIZE) this.speed++    ; return true;
+            case 3: if (this.winLength+1 <= MAX_WIN_SIZE)   this.winLength++; return true;
+        }
+    },
+
+    dec(set) {
+        switch(set) {
+            case 0: if (this.rowsCount-1 >= MIN_MAP_SIZE)   this.rowsCount--; return true;
+            case 1: if (this.colsCount-1 >= MIN_MAP_SIZE)   this.colsCount--; return true;
+            case 2: if (this.speed-1     >= MIN_SPEED_SIZE) this.speed--    ; return true;
+            case 3: if (this.winLength-1 >= MIN_WIN_SIZE)   this.winLength--; return true;
+        }
     }
 };
 
@@ -82,6 +100,42 @@ let render = {
         this.clear();
         this.snake(snakePoint);
         this.food(foodPoint);
+    },
+
+    settings() {
+        let table = document.getElementById('settings');
+        table.innerHTML = '';
+        let settings = [
+            {name: 'Number of rows',    value: game.config.rowsCount},
+            {name: 'Number of columns', value: game.config.colsCount},
+            {name: 'Speed',             value: game.config.speed    },
+            {name: 'Winning length',    value: game.config.winLength}
+        ];
+
+        settings.forEach(function(i, idx) {
+            let row = document.createElement('tr');
+                let col = document.createElement('td');
+                    col.innerText = i.name;
+                    row.appendChild(col);
+                col = document.createElement('td');
+                    col.setAttribute('onclick','game.config.inc(' + idx + '); game.render.settings()');
+                    col.className = 'settings-button';
+                    col.innerText = '+';
+                    row.appendChild(col);
+                col = document.createElement('td');
+                    col.setAttribute('onclick','game.config.dec(' + idx + '); game.render.settings()');
+                    col.className = 'settings-button';
+                    col.innerText = '-';
+                    row.appendChild(col);
+                col = document.createElement('td');
+                    col.innerText = i.value;
+                    row.appendChild(col);
+            table.appendChild(row);
+        });
+    },
+
+    score(len = snake.body.length()) {
+
     }
 };
 
@@ -127,12 +181,13 @@ let snake = {
         if (['up','right','down','left'].includes(direct)) this.direction = direct;
     },
 
-    isMovePossible(point) {
+    isMovePossible(point = this.body[0]) {
         return (
             this.getMovePoint(point).x <= game.config.colsCount-1 &&
             this.getMovePoint(point).y <= game.config.rowsCount-1 &&
             this.getMovePoint(point).x >= 0                       &&
-            this.getMovePoint(point).y >= 0
+            this.getMovePoint(point).y >= 0                       &&
+                this.getMovePoint(point)
         );
         /*
                 TODO - Function check if no wall
@@ -189,7 +244,11 @@ let state = {
     },
 
     isStopped() {
-        return this.condition === 'stopped' || this.condition === 'finished';
+        return this.condition === 'stopped';
+    },
+
+    isFinished() {
+        return this.condition === 'finished';
     }
 };
 
@@ -267,16 +326,12 @@ let game = {
     },
 
     playButton() {
-    let playText = document.getElementById('playButton');
-
-    if (game.state.isPlaying()) {
-        this.stop();
-        playText.innerText = 'Старт';
-    } else if (game.state.isStopped()) {
-        this.play();
-        playText.innerText = 'Стоп';
-    }
-},
+        if (game.state.isPlaying()) {
+            this.stop();
+        } else if (game.state.isStopped()) {
+            this.play();
+        }
+    },
 
     init(userConfig = {}) {
         Object.assign(this.config, userConfig);
@@ -287,20 +342,23 @@ let game = {
         if (document.getElementById('game-wrap') === null) {
             let gameDivs =
                 '<div id="game-wrap">' +
+                    '<table id="settings"></table>' +
                     '<table id="game"></table>' +
+                    '<table id="score"></table>' +
                 '</div>' +
                 '<div id="menu">' +
                     '<div id="playButton" class="menuButton" onclick="game.playButton()">Старт</div>' +
-                    '<div id="newGameButton" class="menuButton" onclick="game.init()">Новая игра</div>' +
+                    '<div id="newGameButton" class="menuButton" onclick="game.stop(); game.init()">Новая игра</div>' +
                 '</div>';
             document.body.insertAdjacentHTML('beforeend', gameDivs);
         }
 
         this.snake.init(this.getSnakeStartPoint(),"up");
         this.food.generate();
-        this.state.set.finish();
+        this.state.set.stop();
         document.addEventListener('keydown', () => this.keyDownHandler(event));
 
+        this.render.settings();
         this.render.map();
         this.render.objects();
     },
@@ -311,11 +369,15 @@ let game = {
             game.snake.move();
             game.render.objects();
         }, Math.floor(1000/this.config.speed));
+        let playText = document.getElementById('playButton');
+        playText.innerText = 'Стоп';
     },
 
     stop() {
         this.state.set.stop();
         clearInterval(this.tick);
+        let playText = document.getElementById('playButton');
+        playText.innerText = 'Начать';
     },
 
     finish() {
@@ -323,7 +385,6 @@ let game = {
         clearInterval(this.tick);
         let playText = document.getElementById('playButton');
         playText.innerText = 'Конец';
-        playText.removeAttribute('onclick');
     }
 };
 
