@@ -50,7 +50,17 @@ td.cell {
 #game-wrap {
   display: flex;
   justify-content: space-around;
+  position: relative;
   margin-top: 2%;
+}
+#game-div {
+  position: absolute;
+}
+#game-div-ghost {
+  opacity: 0;
+}
+#game-div-ghost .menuButton {
+  opacity: 0;
 }
 .popup-window {
   background-color: #009641;

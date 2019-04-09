@@ -17,22 +17,22 @@ let config = {
     winLength: 25,
 
     validate() {
-        if (this.rowsCount <= MIN_MAP_SIZE || this.rowsCount >= MAX_MAP_SIZE) {
+        if (this.rowsCount < MIN_MAP_SIZE   || this.rowsCount > MAX_MAP_SIZE) {
             console.error("10 < rowsCount < 30");
             return false;
         }
 
-        if (this.colsCount <= MIN_MAP_SIZE || this.colsCount >= MAX_MAP_SIZE) {
+        if (this.colsCount < MIN_MAP_SIZE   || this.colsCount > MAX_MAP_SIZE) {
             console.error("10 < colsCount < 30");
             return false;
         }
 
-        if (this.speed < MIN_SPEED_SIZE || this.speed > MAX_SPEED_SIZE) {
+        if (this.speed     < MIN_SPEED_SIZE || this.speed     > MAX_SPEED_SIZE) {
             console.error("1 <= speed <= 10");
             return false;
         }
 
-        if (this.winLength < MIN_WIN_SIZE || this.winLength > MAX_WIN_SIZE) {
+        if (this.winLength < MIN_WIN_SIZE   || this.winLength > MAX_WIN_SIZE) {
             console.error("5 <= winLength <= 50");
             return false;
         }
@@ -290,6 +290,11 @@ let walls = {
             }
         }
     }
+
+    /*
+            TODO - Optional wall generation on food
+        pretty self-explanatory - have a checkbox for generating wall on where the food was
+     */
 };
 
 let state = {
@@ -382,7 +387,14 @@ let game = {
                     '<div id="game-div">' +
                         '<table id="game"></table>' +
                         '<div id="menu">' +
-                            '<div id="playButton" class="menuButton" onclick="game.playButton()">Старт</div>' +
+                        '<div id="playButton" class="menuButton" onclick="game.playButton()"       >Старт     </div>' +
+                        '<div id="newGame"    class="menuButton" onclick="game.stop(); game.init()">Новая игра</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div id="game-div-ghost">' +
+                        '<table id="game"></table>' +
+                        '<div id="menu">' +
+                            '<div id="playButton" class="menuButton" onclick="game.playButton()"       >Старт     </div>' +
                             '<div id="newGame"    class="menuButton" onclick="game.stop(); game.init()">Новая игра</div>' +
                         '</div>' +
                     '</div>' +
@@ -407,6 +419,11 @@ let game = {
         this.tick = setInterval(function() {
             snake.move();
             render.objects();
+            if (snake.body.length === config.winLength) {
+                game.finish();
+                render.clear();
+                alert('gg wp');
+            }
         }, Math.floor(1000/config.speed));
         let playText = document.getElementById('playButton');
         playText.innerText = 'Стоп';
