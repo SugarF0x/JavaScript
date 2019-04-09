@@ -97,16 +97,23 @@ let render = {
         this.cells[`x${point.x}_y${point.y}`].classList.add('food');
     },
 
+    walls(point = walls.body) {
+        point.forEach((point) => {
+            this.cells[`x${point.x}_y${point.y}`].classList.add('wall');
+        })
+    },
+
     clear() {
         for (let key of Object.getOwnPropertyNames(this.cells)) {
             this.cells[key].className = 'cell';
         }
     },
 
-    objects(snakePoint = snake.body, foodPoint = food.point) {
+    objects(snakePoint, foodPoint, walls) {
         this.clear();
         this.snake(snakePoint);
         this.food(foodPoint);
+        this.walls(walls);
     },
 
     settings() {
@@ -200,19 +207,22 @@ let snake = {
     },
 
     isMovePossible(point = this.body[0]) {
+        let x = this.getMovePoint(point).x;
+        let y = this.getMovePoint(point).y;
+
         return (
-            this.getMovePoint(point).x <= game.config.colsCount-1 &&
-            this.getMovePoint(point).y <= game.config.rowsCount-1 &&
-            this.getMovePoint(point).x >= 0                       &&
-            this.getMovePoint(point).y >= 0                       &&
-                this.getMovePoint(point)
+                // checking for grid borders
+            x <= game.config.colsCount-1 &&
+            y <= game.config.rowsCount-1 &&
+            x >= 0                       &&
+            y >= 0                       &&
+
+                // checking for walls
+            render.cells[`x${x}_y${y}`].getAttribute('class').indexOf('wall') < 0 &&
+
+                // checking for snake body
+            render.cells[`x${x}_y${y}`].getAttribute('class').indexOf('snakeBody') < 0
         );
-        /*
-                TODO - Function check if no wall
-             add some code that will make isMovePossible return <false> if there is a wall in the way
-             walls are cells produced by multiCell Object via drawWall() function
-             they stay there like that until the game ends
-         */
     },
 
     isDirChangeable(dir) {
@@ -233,7 +243,7 @@ let food = {
     },
 
     generate() {
-        let exclude = [...snake.body, this.point];
+        let exclude = [...snake.body, this.point, ...walls.body];
         let point = {x: null, y: null};
 
         do {
@@ -245,6 +255,42 @@ let food = {
         }));
 
         this.set(point);
+    }
+};
+
+let walls = {
+    body: [],
+
+    buildWall(point) {
+        this.body.push(point);
+    },
+
+    buildLine(point1, point2) {
+        if (point1.x !== point2.x && point1.y !== point2.y) {
+            console.log('This function only builds in straight lines because Im a dumbass who cant figure diagonals out');
+            return false;
+        }
+
+        if (point1.x < point2.x) {
+            for (let i = 0; i < point2.x - point1.x; i++) {
+                this.buildWall({x:point1.x+i, y:point1.y})
+            }
+        }
+        if (point1.x > point2.x) {
+            for (let i = 0; i < point1.x - point2.x; i++) {
+                this.buildWall({x:point2.x+i, y:point2.y})
+            }
+        }
+        if (point1.y < point2.y) {
+            for (let i = 0; i < point2.y - point1.y; i++) {
+                this.buildWall({x:point1.x, y:point1.y+i})
+            }
+        }
+        if (point1.y > point2.y) {
+            for (let i = 0; i < point1.y - point2.y; i++) {
+                this.buildWall({x:point2.x, y:point2.y+i})
+            }
+        }
     }
 };
 
@@ -303,6 +349,7 @@ let game = {
     snake,
     food,
     state,
+    walls,
 
     tick: null,
 

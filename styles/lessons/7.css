@@ -43,6 +43,9 @@ td.cell {
 .disabled:hover {
   background: #7c7c7c;
 }
+.wall {
+  background-color: #7c7c7c;
+}
 #game-wrap {
   display: flex;
   justify-content: space-around;
@@ -50,7 +53,6 @@ td.cell {
 }
 .popup-window {
   background-color: #009641;
-  border: 1px solid #00d021;
   padding: 2px;
   border-radius: 5px;
 }
