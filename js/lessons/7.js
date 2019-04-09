@@ -1,5 +1,12 @@
 "use strict";
 
+/*
+        TODO - cleanup
+    as all my objects are within one and the same file, i believe that i can remove many <this.> parameters from function calls
+    have to try and see what happens
+    it probably should work as i have already forgot to insert <this.> on many occasions and everything was fine
+ */
+
 //- objects and shit -\\ ---------------------------------------------------------------------------------------------\\
 
 const
@@ -14,7 +21,7 @@ let config = {
     rowsCount: 21,
     colsCount: 21,
     speed: 2,
-    winLength: 50,
+    winLength: 25,
 
     validate() {
         if (this.rowsCount <= MIN_MAP_SIZE || this.rowsCount >= MAX_MAP_SIZE) {
@@ -119,12 +126,12 @@ let render = {
                     row.appendChild(col);
                 col = document.createElement('td');
                     col.setAttribute('onclick','game.config.inc(' + idx + '); game.render.settings()');
-                    col.className = 'settings-button';
+                    col.className = 'button';
                     col.innerText = '+';
                     row.appendChild(col);
                 col = document.createElement('td');
                     col.setAttribute('onclick','game.config.dec(' + idx + '); game.render.settings()');
-                    col.className = 'settings-button';
+                    col.className = 'button';
                     col.innerText = '-';
                     row.appendChild(col);
                 col = document.createElement('td');
@@ -134,8 +141,18 @@ let render = {
         });
     },
 
-    score(len = snake.body.length()) {
+    score(len = snake.body.length) {
+        let table = document.getElementById('score');
+        table.innerHTML = '';
 
+        let tr = document.createElement('tr');
+            let td = document.createElement('td');
+                td.innerText = 'Snake length:';
+            tr.appendChild(td);
+                td = document.createElement('td');
+                td.innerText = len + `/${config.winLength}`;
+            tr.appendChild(td);
+        table.appendChild(tr);
     }
 };
 
@@ -168,6 +185,7 @@ let snake = {
 
         if (this.eat()) {
             game.food.generate();
+            render.score();
         } else {
             this.body.pop();
         }
@@ -342,13 +360,15 @@ let game = {
         if (document.getElementById('game-wrap') === null) {
             let gameDivs =
                 '<div id="game-wrap">' +
-                    '<table id="settings"></table>' +
-                    '<table id="game"></table>' +
-                    '<table id="score"></table>' +
-                '</div>' +
-                '<div id="menu">' +
-                    '<div id="playButton" class="menuButton" onclick="game.playButton()">Старт</div>' +
-                    '<div id="newGameButton" class="menuButton" onclick="game.stop(); game.init()">Новая игра</div>' +
+                    '<table id="settings" class="popup-window"></table>' +
+                    '<div id="game-div">' +
+                        '<table id="game"></table>' +
+                        '<div id="menu">' +
+                            '<div id="playButton" class="menuButton" onclick="game.playButton()">Старт</div>' +
+                            '<div id="newGame"    class="menuButton" onclick="game.stop(); game.init()">Новая игра</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<table id="score" class="popup-window"></table>' +
                 '</div>';
             document.body.insertAdjacentHTML('beforeend', gameDivs);
         }
@@ -359,6 +379,7 @@ let game = {
         document.addEventListener('keydown', () => this.keyDownHandler(event));
 
         this.render.settings();
+        this.render.score();
         this.render.map();
         this.render.objects();
     },

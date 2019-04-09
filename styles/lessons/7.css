@@ -17,7 +17,6 @@
 }
 #game {
   border-collapse: collapse;
-  margin: 2% auto 0;
 }
 #menu {
   display: flex;
@@ -43,5 +42,34 @@ td.cell {
 }
 .disabled:hover {
   background: #7c7c7c;
+}
+#game-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+.popup-window {
+  background-color: #009641;
+  border: 1px solid #00d021;
+  padding: 2px;
+  border-radius: 5px;
+}
+.popup-window tr {
+  background-color: inherit;
+}
+.popup-window tr td {
+  background-color: inherit;
+  color: white;
+  padding: 2px;
+}
+.popup-window .button {
+  background-color: #00d021 !important;
+  min-height: 15px;
+  min-width: 15px;
+  text-align: center;
+  border-radius: 5px;
+}
+.popup-window .button:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=7.css.map */
