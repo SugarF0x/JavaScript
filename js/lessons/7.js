@@ -1,12 +1,5 @@
 "use strict";
 
-/*
-        TODO - cleanup
-    as all my objects are within one and the same file, i believe that i can remove many <this.> parameters from function calls
-    have to try and see what happens
-    it probably should work as i have already forgot to insert <this.> on many occasions and everything was fine
- */
-
 //- objects and shit -\\ ---------------------------------------------------------------------------------------------\\
 
 const
@@ -120,10 +113,10 @@ let render = {
         let table = document.getElementById('settings');
         table.innerHTML = '';
         let settings = [
-            {name: 'Number of rows',    value: game.config.rowsCount},
-            {name: 'Number of columns', value: game.config.colsCount},
-            {name: 'Speed',             value: game.config.speed    },
-            {name: 'Winning length',    value: game.config.winLength}
+            {name: 'Количество рядов',  value: config.rowsCount},
+            {name: 'Количество колонн', value: config.colsCount},
+            {name: 'Скорость',          value: config.speed    },
+            {name: 'Необходимая длина', value: config.winLength}
         ];
 
         settings.forEach(function(i, idx) {
@@ -132,15 +125,20 @@ let render = {
                     col.innerText = i.name;
                     row.appendChild(col);
                 col = document.createElement('td');
-                    col.setAttribute('onclick','game.config.inc(' + idx + '); game.render.settings()');
-                    col.className = 'button';
-                    col.innerText = '+';
+                    let but = document.createElement('button');
+                        but.setAttribute('onclick','config.inc(' + idx + '); render.settings()');
+                        but.className = 'button';
+                        but.innerText = '+';
+                        col.appendChild(but);
                     row.appendChild(col);
                 col = document.createElement('td');
-                    col.setAttribute('onclick','game.config.dec(' + idx + '); game.render.settings()');
-                    col.className = 'button';
-                    col.innerText = '-';
+                        but = document.createElement('button');
+                        but.setAttribute('onclick','config.dec(' + idx + '); render.settings()');
+                        but.className = 'button';
+                        but.innerText = '-';
+                        col.appendChild(but);
                     row.appendChild(col);
+
                 col = document.createElement('td');
                     col.innerText = i.value;
                     row.appendChild(col);
@@ -154,7 +152,7 @@ let render = {
 
         let tr = document.createElement('tr');
             let td = document.createElement('td');
-                td.innerText = 'Snake length:';
+                td.innerText = 'Длина змейки:';
             tr.appendChild(td);
                 td = document.createElement('td');
                 td.innerText = len + `/${config.winLength}`;
@@ -183,7 +181,7 @@ let snake = {
 
     move() {
         if (!this.isMovePossible()) {
-            game.state.set.finish();
+            state.set.finish();
             game.finish();
             return false;
         }
@@ -191,7 +189,7 @@ let snake = {
         this.body.unshift(this.getMovePoint());
 
         if (this.eat()) {
-            game.food.generate();
+            food.generate();
             render.score();
         } else {
             this.body.pop();
@@ -199,7 +197,7 @@ let snake = {
     },
 
     eat() {
-        return JSON.stringify(game.snake.body[0]) === JSON.stringify(game.food.point);
+        return JSON.stringify(snake.body[0]) === JSON.stringify(food.point);
     },
 
     changeDirection(direct) {
@@ -212,10 +210,10 @@ let snake = {
 
         return (
                 // checking for grid borders
-            x <= game.config.colsCount-1 &&
-            y <= game.config.rowsCount-1 &&
-            x >= 0                       &&
-            y >= 0                       &&
+            x <= config.colsCount-1 &&
+            y <= config.rowsCount-1 &&
+            x >= 0                  &&
+            y >= 0                  &&
 
                 // checking for walls
             render.cells[`x${x}_y${y}`].getAttribute('class').indexOf('wall') < 0 &&
@@ -323,40 +321,13 @@ let state = {
     the tail is cut off, but it stays in that cell, coloring it gray as walled off and no longer accessible
  */
 
-/*
-        TODO - Object settings
-    add a settings window to the left of snake grid
-    it is placed in #game-wrap before #game
-    one will see there all the options with <+> and <-> by them
-    pressing the buttons will change the values displayed for each configuration field
-    at the bottom there should be an <Apply> button that triggers <game.init()> with user-selected arguments
-    main init() function renders and should be called in game.init()
-    the buttons are disabled while the game is running or paused
-    (only enabled when state.condition === 'finished', which it is by default after game.init())
- */
-
-/*
-        TODO - Object score
-    add score table to the right of snake grid
-    it is placed in #game-wrap after #game
-    this one is pretty much self-explanatory
-    main init() function renders and should be called in game.init()
- */
-
 let game = {
-    config,
-    render,
-    snake,
-    food,
-    state,
-    walls,
-
     tick: null,
 
     getSnakeStartPoint() {
         return {
-            x: Math.floor(this.config.colsCount / 2),
-            y: Math.floor(this.config.rowsCount / 2)
+            x: Math.floor(config.colsCount / 2),
+            y: Math.floor(config.rowsCount / 2)
         }
     },
 
@@ -385,22 +356,22 @@ let game = {
 
     keyDownHandler(event) {
         let direction = this.getDirectionByCode(event.code);
-        if (direction !== "NaD" && this.snake.isDirChangeable(direction)) {
-            this.snake.changeDirection(direction);
+        if (direction !== "NaD" && snake.isDirChangeable(direction)) {
+            snake.changeDirection(direction);
         }
     },
 
     playButton() {
-        if (game.state.isPlaying()) {
+        if (state.isPlaying()) {
             this.stop();
-        } else if (game.state.isStopped()) {
+        } else if (state.isStopped()) {
             this.play();
         }
     },
 
     init(userConfig = {}) {
-        Object.assign(this.config, userConfig);
-        if (!this.config.validate()) {
+        Object.assign(config, userConfig);
+        if (!config.validate()) {
            return false;
         }
 
@@ -420,36 +391,36 @@ let game = {
             document.body.insertAdjacentHTML('beforeend', gameDivs);
         }
 
-        this.snake.init(this.getSnakeStartPoint(),"up");
-        this.food.generate();
-        this.state.set.stop();
+        snake.init(this.getSnakeStartPoint(),"up");
+        food.generate();
+        state.set.stop();
         document.addEventListener('keydown', () => this.keyDownHandler(event));
 
-        this.render.settings();
-        this.render.score();
-        this.render.map();
-        this.render.objects();
+        render.settings();
+        render.score();
+        render.map();
+        render.objects();
     },
 
     play() {
-        this.state.set.play();
+        state.set.play();
         this.tick = setInterval(function() {
-            game.snake.move();
-            game.render.objects();
-        }, Math.floor(1000/this.config.speed));
+            snake.move();
+            render.objects();
+        }, Math.floor(1000/config.speed));
         let playText = document.getElementById('playButton');
         playText.innerText = 'Стоп';
     },
 
     stop() {
-        this.state.set.stop();
+        state.set.stop();
         clearInterval(this.tick);
         let playText = document.getElementById('playButton');
         playText.innerText = 'Начать';
     },
 
     finish() {
-        this.state.set.finish();
+        state.set.finish();
         clearInterval(this.tick);
         let playText = document.getElementById('playButton');
         playText.innerText = 'Конец';

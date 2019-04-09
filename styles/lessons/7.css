@@ -17,6 +17,7 @@
 }
 #game {
   border-collapse: collapse;
+  margin: 0 auto;
 }
 #menu {
   display: flex;
@@ -65,7 +66,8 @@ td.cell {
   padding: 2px;
 }
 .popup-window .button {
-  background-color: #00d021 !important;
+  border: none;
+  background-color: #00d021;
   min-height: 15px;
   min-width: 15px;
   text-align: center;
