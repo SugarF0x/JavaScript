@@ -33,7 +33,7 @@ td.cell {
   background: #00d021;
 }
 .snakeBody {
-  background: #e5e5e5;
+  background: #e5e5e5 !important;
 }
 .snakeHead {
   background: #9b0013;

@@ -15,6 +15,7 @@ let config = {
     colsCount: 21,
     speed: 2,
     winLength: 25,
+    eatWall: false,
 
     validate() {
         if (this.rowsCount < MIN_MAP_SIZE   || this.rowsCount > MAX_MAP_SIZE) {
@@ -56,6 +57,10 @@ let config = {
             case 2: if (this.speed-1     >= MIN_SPEED_SIZE) this.speed--    ; return true;
             case 3: if (this.winLength-1 >= MIN_WIN_SIZE)   this.winLength--; return true;
         }
+    },
+
+    swapBool(bool) {
+        return !bool;
     }
 };
 
@@ -90,7 +95,7 @@ let render = {
         this.cells[`x${point.x}_y${point.y}`].classList.add('food');
     },
 
-    walls(point = walls.body) {
+    walls(point = wall.body) {
         point.forEach((point) => {
             this.cells[`x${point.x}_y${point.y}`].classList.add('wall');
         })
@@ -144,6 +149,21 @@ let render = {
                     row.appendChild(col);
             table.appendChild(row);
         });
+
+        let row = document.createElement("tr");
+            let col = document.createElement('td');
+                col.innerText = 'Стены на еде';
+            row.appendChild(col);
+                col = document.createElement('td');
+            row.appendChild(col);
+                col = document.createElement('td');
+            row.appendChild(col);
+                col = document.createElement('td');
+                let isChecked = '';
+                if (config.eatWall) isChecked = "checked";
+                col.innerHTML = `<input type="checkbox" onclick="config.eatWall = config.swapBool(config.eatWall);" ${isChecked}>`;
+            row.appendChild(col);
+        table.appendChild(row);
     },
 
     score(len = snake.body.length) {
@@ -186,12 +206,13 @@ let snake = {
             return false;
         }
 
-        this.body.unshift(this.getMovePoint());
-
         if (this.eat()) {
             food.generate();
             render.score();
+            this.body.unshift(this.getMovePoint());
+            if (config.eatWall) wall.buildWall(this.body[1])
         } else {
+            this.body.unshift(this.getMovePoint());
             this.body.pop();
         }
     },
@@ -241,7 +262,7 @@ let food = {
     },
 
     generate() {
-        let exclude = [...snake.body, this.point, ...walls.body];
+        let exclude = [...snake.body, this.point, ...wall.body];
         let point = {x: null, y: null};
 
         do {
@@ -256,8 +277,12 @@ let food = {
     }
 };
 
-let walls = {
+let wall = {
     body: [],
+
+    clear() {
+        this.body = [];
+    },
 
     buildWall(point) {
         this.body.push(point);
@@ -290,11 +315,6 @@ let walls = {
             }
         }
     }
-
-    /*
-            TODO - Optional wall generation on food
-        pretty self-explanatory - have a checkbox for generating wall on where the food was
-     */
 };
 
 let state = {
@@ -404,6 +424,7 @@ let game = {
         }
 
         snake.init(this.getSnakeStartPoint(),"up");
+        wall.clear();
         food.generate();
         state.set.stop();
         document.addEventListener('keydown', () => this.keyDownHandler(event));
