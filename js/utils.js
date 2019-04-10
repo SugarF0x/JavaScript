@@ -17,3 +17,14 @@ function random(min, max) {
 function div(val, by){
     return (val - val % by) / by;
 }
+
+function containsObject(obj, list) {
+    let i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+
+    return false;
+}
