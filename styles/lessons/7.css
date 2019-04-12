@@ -70,6 +70,13 @@ td.cell {
 #game-div-ghost .menuButton {
   opacity: 0;
 }
+.title {
+  text-align: center;
+  background-color: #009641 !important;
+  color: white;
+  font-size: 24px;
+  border-bottom: 1px solid white;
+}
 .popup-window {
   background-color: #009641;
   padding: 2px;

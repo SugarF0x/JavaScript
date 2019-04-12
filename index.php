@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript</title>
+    <title>Snake</title>
 </head>
 <body>
     <script src="js/utils.js"></script>

@@ -17,6 +17,7 @@ let config = {
     winLength: 25,
     eatWall: false,
     nazi: false,
+    debug: false,
 
     validate() {
         if (this.rowsCount < MIN_MAP_SIZE   || this.rowsCount > MAX_MAP_SIZE) {
@@ -119,12 +120,18 @@ let render = {
         this.snake(snakePoint);
         this.food(foodPoint);
         this.walls(walls);
-        this.nazi(nazi);
+        if (config.nazi)  this.nazi(nazi);
+
+        if (config.debug)
+            this.debug();
+        else
+            if (document.getElementById('debug') !== null)
+                document.getElementById('debug').innerHTML='';
     },
 
     settings() {
         let table = document.getElementById('settings');
-        table.innerHTML = '';
+        table.innerHTML = '<tr><td colspan="4" class="title">Настройки</td></tr>';
         let settings = [
             {name: 'Количество рядов',  value: config.rowsCount},
             {name: 'Количество колонн', value: config.colsCount},
@@ -191,6 +198,27 @@ let render = {
             row.appendChild(col);
         table.appendChild(row);
 
+        // debug checkbox
+        row = document.createElement("tr");
+            col = document.createElement('td');
+                col.innerText = 'Дебаг';
+                row.appendChild(col);
+            col = document.createElement('td');
+            row.appendChild(col);
+            col = document.createElement('td');
+            row.appendChild(col);
+            col = document.createElement('td');
+                isChecked = '';
+                if (config.debug) isChecked = "checked";
+                col.innerHTML = `<input type="checkbox" onclick="config.debug = config.swapBool(config.debug);" ${isChecked}>`;
+            row.appendChild(col);
+        table.appendChild(row);
+
+        /*
+                TODO - cleanup
+            make checkboxes a for loop just like other settings in the beginning
+         */
+
             // Apply button
         row = document.createElement("tr");
             col = document.createElement('td');
@@ -202,16 +230,70 @@ let render = {
 
     score(len = snake.body.length) {
         let table = document.getElementById('score');
-        table.innerHTML = '';
+        table.innerHTML = '<tr><td colspan="2" class="title">Счёт</td></tr>';
 
         let tr = document.createElement('tr');
             let td = document.createElement('td');
-                td.innerText = 'Длина змейки:';
+                if (!config.nazi)
+                    td.innerText = 'Длина змейки:';
+                else
+                    td.innerText = 'Заполненно:';
             tr.appendChild(td);
                 td = document.createElement('td');
-                td.innerText = len + `/${config.winLength}`;
+                if (!config.nazi)
+                    td.innerText = len + `/${config.winLength}`;
+                else
+                    td.innerText = Math.floor((nazi.fillCount()/nazi.body.length)*100) + '%';
             tr.appendChild(td);
         table.appendChild(tr);
+    },
+
+    naziScreen() {
+        let naziTint = document.createElement('div');
+            naziTint.setAttribute('class','naziTint');
+            naziTint.setAttribute('style','position: absolute; height: 100%; width: 100%; left: 0; top: 0; opacity: 0; background-color: red');
+        document.body.appendChild(naziTint);
+
+        function opacityRender(opacity) {
+            setTimeout(function() {
+                naziTint.style.opacity = opacity/100;
+
+                if (opacity <= 50)
+                    opacityRender(opacity+1);
+                else
+                    return true;
+            }, 50);
+        }
+
+        opacityRender(1);
+    },
+
+    debug() {
+        let contents = [
+            {name: 'Заполнить свастику:', value: 'nazi.fillAll()'}
+        ];
+
+        let table = document.getElementById('debug');
+            table.innerHTML = '<tr><td colspan="2" class="title">Дебаг</td></tr>';
+
+            for (let i = 0; i < contents.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let bt = document.createElement('button');
+
+                td.innerText = contents[i].name;
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                bt = document.createElement('button');
+                bt.setAttribute('onclick', contents[i].value);
+                bt.classList.add('button');
+                bt.innerText = contents[i].value;
+
+                td.appendChild(bt);
+                tr.appendChild(td);
+                table.appendChild(tr);
+            }
     }
 };
 
@@ -404,14 +486,26 @@ let nazi = {
         this.body = [];
     },
 
-    isFilled() {
+    fillCount() {
         let filled = 0;
         for (let i = 0; i < this.body.length; i++) {
             if (render.cells[`x${this.body[i].x}_y${this.body[i].y}`].classList.contains('wall')) {
                 filled++;
             }
         }
-        return filled === this.body.length;
+        return filled;
+    },
+
+    isFilled() {
+        return this.fillCount() === this.body.length;
+    },
+
+    fillAll() {
+        for (let i = 0; i < this.body.length; i++) {
+            render.cells[`x${this.body[i].x}_y${this.body[i].y}`].classList.add('wall');
+            let point = this.body[i];
+            wall.buildWall(point);
+        }
     }
 };
 
@@ -489,6 +583,8 @@ let game = {
                     '</div>' +
                     '<table id="score" class="popup-window"></table>' +
                 '</div>';
+            if (!config.debug) gameDivs += '<table id="debug" class="popup-window" style="float: right; margin-right: 5%;"></table>';
+            else gameDivs += '<table id="debug"></table>';
             document.body.insertAdjacentHTML('beforeend', gameDivs);
         }
 
@@ -501,6 +597,7 @@ let game = {
         food.generate();
         state.set.stop();
         document.addEventListener('keydown', () => this.keyDownHandler(event));
+        document.getElementById('playButton').innerText = 'Старт';
 
         render.settings();
         render.score();
@@ -513,6 +610,7 @@ let game = {
         this.tick = setInterval(function() {
             snake.move();
             render.objects();
+
             if (snake.body.length === config.winLength) {
                 render.objects();
                 game.finish();
@@ -523,6 +621,7 @@ let game = {
                 game.finish();
                 let audio = new Audio('src/music/Ukraine.mp3');
                 audio.play();
+                render.naziScreen();
             }
         }, Math.floor(1000/config.speed));
         let playText = document.getElementById('playButton');
