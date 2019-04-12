@@ -270,7 +270,7 @@ let render = {
             head.appendChild(s);
         }
 
-        addcss( '#game-wrap, #debug {' +
+        addcss( '#game-wrap, .popup-window, #game, .button {' +
             '  -webkit-animation-name: spaceboots;' +
             '  -webkit-animation-duration: 0.8s;' +
             '  -webkit-transform-origin:50% 50%;' +
