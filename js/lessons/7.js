@@ -120,13 +120,8 @@ let render = {
         this.snake(snakePoint);
         this.food(foodPoint);
         this.walls(walls);
-        if (config.nazi)  this.nazi(nazi);
-
-        if (config.debug)
-            this.debug();
-        else
-            if (document.getElementById('debug') !== null)
-                document.getElementById('debug').innerHTML='';
+        this.nazi(nazi);
+        this.debug();
     },
 
     settings() {
@@ -251,7 +246,6 @@ let render = {
     naziScreen() {
         let naziTint = document.createElement('div');
             naziTint.setAttribute('class','naziTint');
-            naziTint.setAttribute('style','position: absolute; height: 100%; width: 100%; left: 0; top: 0; opacity: 0; background-color: red');
         document.body.appendChild(naziTint);
 
         function opacityRender(opacity) {
@@ -264,13 +258,32 @@ let render = {
                     return true;
             }, 50);
         }
+        function addcss(css){
+            var head = document.getElementsByTagName('head')[0];
+            var s = document.createElement('style');
+            s.setAttribute('type', 'text/css');
+            if (s.styleSheet) {   // IE
+                s.styleSheet.cssText = css;
+            } else {                // the world
+                s.appendChild(document.createTextNode(css));
+            }
+            head.appendChild(s);
+        }
 
+        addcss( '#game-wrap, #debug {' +
+            '  -webkit-animation-name: spaceboots;' +
+            '  -webkit-animation-duration: 0.8s;' +
+            '  -webkit-transform-origin:50% 50%;' +
+            '  -webkit-animation-iteration-count: infinite;' +
+            '  -webkit-animation-timing-function: linear;' +
+            '}');
         opacityRender(1);
     },
 
     debug() {
         let contents = [
-            {name: 'Заполнить свастику:', value: 'nazi.fillAll()'}
+            {name: 'Заполнить свастику:',    value: 'nazi.fillAll()'},
+            {name: 'Экран победы нацистов:', value: 'render.naziScreen()'}
         ];
 
         let table = document.getElementById('debug');
@@ -294,6 +307,12 @@ let render = {
                 tr.appendChild(td);
                 table.appendChild(tr);
             }
+
+        if (config.debug) {
+            table.style.opacity = 1;
+        } else {
+            table.style.opacity = 0;
+        }
     }
 };
 
@@ -582,9 +601,8 @@ let game = {
                         '</div>' +
                     '</div>' +
                     '<table id="score" class="popup-window"></table>' +
-                '</div>';
-            if (!config.debug) gameDivs += '<table id="debug" class="popup-window" style="float: right; margin-right: 5%;"></table>';
-            else gameDivs += '<table id="debug"></table>';
+                '</div>' +
+                '<table id="debug" class="popup-window" style="float: right; margin-right: 5%;"></table>';
             document.body.insertAdjacentHTML('beforeend', gameDivs);
         }
 
