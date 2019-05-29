@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2174370f-efae-442d-a71c-ae7485bede24" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/lessons/7.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/lessons/7.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="269" column="32" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
+              <folding>
+                <element signature="e#305#2036#0" />
+                <element signature="e#449#1145#0" />
+                <element signature="e#529#616#0" />
+                <element signature="e#696#783#0" />
+                <element signature="e#865#949#0" />
+                <element signature="e#1029#1117#0" />
+                <element signature="e#1161#1564#0" />
+                <element signature="e#1171#1558#0" />
+                <element signature="e#1197#1275#0" />
+                <element signature="e#1288#1366#0" />
+                <element signature="e#1379#1457#0" />
+                <element signature="e#1470#1548#0" />
+                <element signature="e#1580#1983#0" />
+                <element signature="e#1590#1977#0" />
+                <element signature="e#1616#1694#0" />
+                <element signature="e#1707#1785#0" />
+                <element signature="e#1798#1876#0" />
+                <element signature="e#1889#1967#0" />
+                <element signature="e#2005#2034#0" />
+                <element signature="e#2138#2670#0" />
+                <element signature="e#2274#2664#0" />
+                <element signature="e#2454#2654#0" />
+                <element signature="e#2703#2864#0" />
+                <element signature="e#2742#2857#0" />
+                <element signature="e#2896#2972#0" />
+                <element signature="e#3004#3130#0" />
+                <element signature="e#3039#3123#0" />
+                <element signature="e#3161#3304#0" />
+                <element signature="e#3213#3297#0" />
+                <element signature="e#3319#3450#0" />
+                <element signature="e#3385#3444#0" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Less File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>game</find>
+      <find>finish</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lesson-7" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/lessons/3.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/lessons/4.js" />
+        <option value="$PROJECT_DIR$/js/lessons/5.js" />
+        <option value="$PROJECT_DIR$/js/lessons/6.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/styles/6.less" />
+        <option value="$PROJECT_DIR$/js/utils.js" />
+        <option value="$PROJECT_DIR$/styles/lessons/7.less" />
+        <option value="$PROJECT_DIR$/js/lessons/7.js" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-150" />
+    <option name="y" value="-24" />
+    <option name="width" value="1890" />
+    <option name="height" value="960" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2174370f-efae-442d-a71c-ae7485bede24" name="Default Changelist" comment="" />
+      <created>1553100995699</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553100995699</updated>
+      <workItem from="1553100997001" duration="2531000" />
+      <workItem from="1553440145886" duration="149000" />
+      <workItem from="1553704373240" duration="464000" />
+      <workItem from="1553704911495" duration="3086000" />
+      <workItem from="1554029898680" duration="2293000" />
+      <workItem from="1554032286762" duration="270000" />
+      <workItem from="1554313684503" duration="436000" />
+      <workItem from="1554314195443" duration="325000" />
+      <workItem from="1554668259482" duration="226000" />
+      <workItem from="1554668548907" duration="220000" />
+      <workItem from="1554830243811" duration="10624000" />
+      <workItem from="1554878412298" duration="2402000" />
+      <workItem from="1554888025625" duration="2269000" />
+      <workItem from="1554901079606" duration="4839000" />
+      <workItem from="1554909402195" duration="3511000" />
+      <workItem from="1554914377581" duration="78000" />
+      <workItem from="1555050130982" duration="12302000" />
+      <workItem from="1555070476145" duration="142000" />
+      <workItem from="1555507378702" duration="789000" />
+    </task>
+    <task id="LOCAL-00001" summary="Made some rearrangements in phphstorm, the new files are just it's workspace">
+      <created>1553101097751</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553101097751</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Task 2 finished&#10;That was a wacky experience, though, i think, i got the hang of them arrays">
+      <created>1553102433877</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553102433877</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Task 3 finished&#10;The one with the star, though, was by far the easiest">
+      <created>1553102779818</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553102779818</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Task 4 finished&#10;So, the hardest part turned out to be Task 2, cuz i never actually got to finish it propery - didn't even work our for me the way it was supposed to&#10;&#10;I did find some wacky functions on stackoverflow of how to properly copy arrays and objects, when it comes to that, but it was nothing near to what was shown to us during the class">
+      <created>1553103150065</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553103150065</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Removed everything from master branch as I forgot to do it form the start&#10;&#10;again">
+      <created>1553103510927</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553103510927</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Moved HW3 to according folder">
+      <created>1553430772980</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553430772980</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Prepared workspace for HW4">
+      <created>1553430841551</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1553430841551</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Finished Task 1&#10;It was a pain, i was trying to put everything in return object right away without creating unnecessary variables, but failed miserably&#10;In the end I didn't quite get how do I reference the variables within the very same object during a single initialisation (im not even sure if it's possible at all) so there you got, a peg I came up with&#10;Aint top efficient, but hey, as long as it woks (˵¯͒⌄¯͒˵)">
+      <created>1553432919647</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1553432919647</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Finished Task 2&#10;Finally, god, it was terrible&#10;Don't get me wrong, I enjoyed every second of it, nothing pushed me to work harder as much as bugs in my code do&#10;There were a couple of bugs which I couldn't really track, so I've spent at least an hour to do that and to fix it all&#10;If only you had seem my face when I saw the code running as intended ( ͡° ͜ʖ ͡°)&#10;I also did it a bit different from what you've asked from us in the hw.pdf, but I guess it works just as fine with random items in the cart as if it did with &lt;double even&gt; numbers&#10;Talking about task 3, I didn't really want to do it cuz i remember myself making the very same thing back in the school days, but in Pascal. I wanted to send you the .exe of that game, but unfortunately, as it turns out, i hadn't saved it when reinstalling my windows this summer :c&#10;Anyway, there you go °˖✧◝(⁰▿⁰)◜✧˖°">
+      <created>1553440001323</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553440001323</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Got workspace ready for HW 5&#10;Also deleter .idea from repository as there was literally no need for it being there in the first place">
+      <created>1553705037196</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1553705037196</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Finished Task 1&#10;Also made the table extendable upto alphabetical limit (26x26) running by default with random size function, but there is a commenter-out 8x8 grid as well&#10;Additionally added some plain text to &lt;readme&gt; file as it seemed to be lonely on the repository page">
+      <created>1553707388912</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1553707388912</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Finished Task 2&#10;I really didn't  feel like using stylesheet for the table so I inserted all the styles directly into the html&#10;Yeah, it may be messy if one reads into the html, but hey, im happy enough, so that just about does it for me for now">
+      <created>1554032456313</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1554032456314</updated>
+    </task>
+    <task id="LOCAL-00013" summary="0.7&#10;&#10;Made some adjustments to .css, now displays &lt;Settings&gt; and &lt;Score&gt; fine&#10;&#10;In game.init() moved #menu and #game into one div so as to center the menu buttons right beneath the game grid&#10;&#10;Finished render.score() function, updates upon having eaten">
+      <created>1554833616405</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554833616405</updated>
+    </task>
+    <task id="LOCAL-00014" summary="0.8&#10;&#10;.popup-window no longer have borders&#10;.wall cells are now filled with gray &#10;&#10;Snake now successfully bumps into 'wall' cells and into itself, resulting in game over&#10;&#10;Walls are now and object with it's own &lt;render.walls()&gt;&#10;Snake detects them as obstacles and stops">
+      <created>1554837495979</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1554837495979</updated>
+    </task>
+    <task id="LOCAL-00015" summary="0.9&#10;&#10;Removed all &lt;game&gt; references as there were literally no need for that, all the objects are within the very save .js file&#10;It's a bit day, boys, we actually did it&#10;I've been wanting to do that from the very beginning as i thought it was wrong to do si, and turns out i was right&#10;&#10;#game grid is now properly centered, even when it's smaller size (e.g. 11x11)&#10;&#10;In &lt;render.settings()&gt; replaced (+) and (-) td's with actual buttons, so that now you can't select plus or minus&#10;That has been bugging me for quite some time now&#10;&#10;Changed all on-screen text into Russian">
+      <created>1554839162858</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1554839162858</updated>
+    </task>
+    <task id="LOCAL-00016" summary="1.0&#10;&#10;The snake is now somewhat winnable&#10;&#10;Fixed minor bugs in config.validate() function that wouldn't allow for MIN or MAX values to pass through&#10;&#10;Glued the snake grid to the screen center">
+      <created>1554840862192</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554840862192</updated>
+    </task>
+    <task id="LOCAL-00017" summary="1.1&#10;&#10;Changed &lt;walls&gt; to &lt;wall&gt; object, as it is much more comfortable to call&#10;Walls now clear on game initiation&#10;&#10;eatWall config is not added as a checkbox to &lt;settings&gt; window&#10;The check is kept through new game initiation&#10;When checked, the snake will leave walls on cells where food was eaten&#10;The function is located in &lt;snake.move()&gt;">
+      <created>1554888947821</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1554888947821</updated>
+    </task>
+    <task id="LOCAL-00018" summary="1.2&#10;&#10;Added &quot;Apply&quot; button to &lt;settings&gt; window that calls game.init()&#10;&#10;Fixed but with render.settings() always falling one point behind&#10;Fixed bug with ghost buttons being clickable, also moved them on z-axis down 10 layers, so as to prevent it from blocking cells when hovering in search of sigil&#10;Fixed some typos&#10;&#10;Added Nazi mode&#10;Nazi sigil generates randomly but stays hidden unless you hover over it&#10;Once the snake's tail, which is longer than 1, touches the tle, it turns black and turns into a wall&#10;During this time the snake stops so as to fill all the nazi cells">
+      <created>1554914217623</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1554914217623</updated>
+    </task>
+    <task id="LOCAL-00019" summary="1.3&#10;&#10;Minor typos&#10;Changed page title to &quot;Snake&quot;&#10;&#10;The screen now gradually goes red upon Nazi win condition&#10;In Nazi-mode Score now displays % of tiles filled&#10;&#10;Added fillAll() function to &lt;nazi&gt; object for debugging purposes&#10;&#10;Added Debug popup-window to the right side, toggleable&#10;Popup-windows now have titles">
+      <created>1555067150547</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1555067150547</updated>
+    </task>
+    <task id="LOCAL-00020" summary="1.3.1&#10;&#10;Now the screen both shakes and turns red upon Nazi win condition&#10;&#10;It this point, everything is done, just need to perform a total cleanup for the core (which is a total mess at this point and reminds me more of spaghetti)">
+      <created>1555069978140</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1555069978140</updated>
+    </task>
+    <task id="LOCAL-00021" summary="1.3.2&#10;&#10;minor fixes to css in render.naziScreen() function">
+      <created>1555070608723</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1555070608723</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="55983000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26477733" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3285968" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49959514" weight="0.3250444" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3285968" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50121456" side_tool="true" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49878544" visible="true" weight="0.3285968" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Made some rearrangements in phphstorm, the new files are just it's workspace" />
+    <MESSAGE value="Task 2 finished&#10;That was a wacky experience, though, i think, i got the hang of them arrays" />
+    <MESSAGE value="Task 3 finished&#10;The one with the star, though, was by far the easiest" />
+    <MESSAGE value="Task 4 finished&#10;So, the hardest part turned out to be Task 2, cuz i never actually got to finish it propery - didn't even work our for me the way it was supposed to&#10;&#10;I did find some wacky functions on stackoverflow of how to properly copy arrays and objects, when it comes to that, but it was nothing near to what was shown to us during the class" />
+    <MESSAGE value="Removed everything from master branch as I forgot to do it form the start&#10;&#10;again" />
+    <MESSAGE value="Moved HW3 to according folder" />
+    <MESSAGE value="Prepared workspace for HW4" />
+    <MESSAGE value="Finished Task 1&#10;It was a pain, i was trying to put everything in return object right away without creating unnecessary variables, but failed miserably&#10;In the end I didn't quite get how do I reference the variables within the very same object during a single initialisation (im not even sure if it's possible at all) so there you got, a peg I came up with&#10;Aint top efficient, but hey, as long as it woks (˵¯͒⌄¯͒˵)&#10;&#10;P.S. I just realised that this could have been done even easier - I could have first checked for the number to be less than 999, then convert it to String and then just extract 0, 1 and 2 char position (❁°͈▵°͈)" />
+    <MESSAGE value="Finished Task 2&#10;Finally, god, it was terrible&#10;Don't get me wrong, I enjoyed every second of it, nothing pushed me to work harder as much as bugs in my code do&#10;There were a couple of bugs which I couldn't really track, so I've spent at least an hour to do that and to fix it all&#10;If only you had seem my face when I saw the code running as intended ( ͡° ͜ʖ ͡°)&#10;I also did it a bit different from what you've asked from us in the hw.pdf, but I guess it works just as fine with random items in the cart as if it did with &lt;double even&gt; numbers&#10;Talking about task 3, I didn't really want to do it cuz i remember myself making the very same thing back in the school days, but in Pascal. I wanted to send you the .exe of that game, but unfortunately, as it turns out, i hadn't saved it when reinstalling my windows this summer :c&#10;Anyway, there you go °˖✧◝(⁰▿⁰)◜✧˖°" />
+    <MESSAGE value="Got workspace ready for HW 5&#10;Also deleter .idea from repository as there was literally no need for it being there in the first place" />
+    <MESSAGE value="Finished Task 1&#10;Also made the table extendable upto alphabetical limit (26x26) running by default with random size function, but there is a commenter-out 8x8 grid as well&#10;Additionally added some plain text to &lt;readme&gt; file as it seemed to be lonely on the repository page" />
+    <MESSAGE value="Finished Task 2&#10;I really didn't  feel like using stylesheet for the table so I inserted all the styles directly into the html&#10;Yeah, it may be messy if one reads into the html, but hey, im happy enough, so that just about does it for me for now" />
+    <MESSAGE value="0.7&#10;&#10;Made some adjustments to .css, now displays &lt;Settings&gt; and &lt;Score&gt; fine&#10;&#10;In game.init() moved #menu and #game into one div so as to center the menu buttons right beneath the game grid&#10;&#10;Finished render.score() function, updates upon having eaten" />
+    <MESSAGE value="0.8&#10;&#10;.popup-window no longer have borders&#10;.wall cells are now filled with gray &#10;&#10;Snake now successfully bumps into 'wall' cells and into itself, resulting in game over&#10;&#10;Walls are now and object with it's own &lt;render.walls()&gt;&#10;Snake detects them as obstacles and stops" />
+    <MESSAGE value="0.9&#10;&#10;Removed all &lt;game&gt; references as there were literally no need for that, all the objects are within the very save .js file&#10;It's a bit day, boys, we actually did it&#10;I've been wanting to do that from the very beginning as i thought it was wrong to do si, and turns out i was right&#10;&#10;#game grid is now properly centered, even when it's smaller size (e.g. 11x11)&#10;&#10;In &lt;render.settings()&gt; replaced (+) and (-) td's with actual buttons, so that now you can't select plus or minus&#10;That has been bugging me for quite some time now&#10;&#10;Changed all on-screen text into Russian" />
+    <MESSAGE value="1.0&#10;&#10;The snake is now somewhat winnable&#10;&#10;Fixed minor bugs in config.validate() function that wouldn't allow for MIN or MAX values to pass through&#10;&#10;Glued the snake grid to the screen center" />
+    <MESSAGE value="1.1&#10;&#10;Changed &lt;walls&gt; to &lt;wall&gt; object, as it is much more comfortable to call&#10;Walls now clear on game initiation&#10;&#10;eatWall config is not added as a checkbox to &lt;settings&gt; window&#10;The check is kept through new game initiation&#10;When checked, the snake will leave walls on cells where food was eaten&#10;The function is located in &lt;snake.move()&gt;" />
+    <MESSAGE value="1.2&#10;&#10;Added &quot;Apply&quot; button to &lt;settings&gt; window that calls game.init()&#10;&#10;Fixed but with render.settings() always falling one point behind&#10;Fixed bug with ghost buttons being clickable, also moved them on z-axis down 10 layers, so as to prevent it from blocking cells when hovering in search of sigil&#10;Fixed some typos&#10;&#10;Added Nazi mode&#10;Nazi sigil generates randomly but stays hidden unless you hover over it&#10;Once the snake's tail, which is longer than 1, touches the tle, it turns black and turns into a wall&#10;During this time the snake stops so as to fill all the nazi cells" />
+    <MESSAGE value="1.3&#10;&#10;Minor typos&#10;Changed page title to &quot;Snake&quot;&#10;&#10;The screen now gradually goes red upon Nazi win condition&#10;In Nazi-mode Score now displays % of tiles filled&#10;&#10;Added fillAll() function to &lt;nazi&gt; object for debugging purposes&#10;&#10;Added Debug popup-window to the right side, toggleable&#10;Popup-windows now have titles" />
+    <MESSAGE value="1.3.1&#10;&#10;Now the screen both shakes and turns red upon Nazi win condition&#10;&#10;It this point, everything is done, just need to perform a total cleanup for the core (which is a total mess at this point and reminds me more of spaghetti)" />
+    <MESSAGE value="1.3.2&#10;&#10;minor fixes to css in render.naziScreen() function" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.3.2&#10;&#10;minor fixes to css in render.naziScreen() function" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/1.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" selection-start-line="26" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="87" column="1" lean-forward="true" selection-start-line="38" selection-end-line="87" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/6.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/6.less" />
+    <entry file="file://$PROJECT_DIR$/index.html" />
+    <entry file="file://$PROJECT_DIR$/js/lessons/5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/main.less">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/lessons/7.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lessons/7.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="269" column="32" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
+          <folding>
+            <element signature="e#305#2036#0" />
+            <element signature="e#449#1145#0" />
+            <element signature="e#529#616#0" />
+            <element signature="e#696#783#0" />
+            <element signature="e#865#949#0" />
+            <element signature="e#1029#1117#0" />
+            <element signature="e#1161#1564#0" />
+            <element signature="e#1171#1558#0" />
+            <element signature="e#1197#1275#0" />
+            <element signature="e#1288#1366#0" />
+            <element signature="e#1379#1457#0" />
+            <element signature="e#1470#1548#0" />
+            <element signature="e#1580#1983#0" />
+            <element signature="e#1590#1977#0" />
+            <element signature="e#1616#1694#0" />
+            <element signature="e#1707#1785#0" />
+            <element signature="e#1798#1876#0" />
+            <element signature="e#1889#1967#0" />
+            <element signature="e#2005#2034#0" />
+            <element signature="e#2138#2670#0" />
+            <element signature="e#2274#2664#0" />
+            <element signature="e#2454#2654#0" />
+            <element signature="e#2703#2864#0" />
+            <element signature="e#2742#2857#0" />
+            <element signature="e#2896#2972#0" />
+            <element signature="e#3004#3130#0" />
+            <element signature="e#3039#3123#0" />
+            <element signature="e#3161#3304#0" />
+            <element signature="e#3213#3297#0" />
+            <element signature="e#3319#3450#0" />
+            <element signature="e#3385#3444#0" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
