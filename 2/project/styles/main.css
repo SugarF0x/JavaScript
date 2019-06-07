@@ -30,6 +30,10 @@ header .name {
   padding: 0.5rem;
   font-style: oblique;
 }
+header #current {
+  font-size: 200%;
+  color: white;
+}
 .products {
   display: flex;
   margin: 2rem;
@@ -49,6 +53,12 @@ header .name {
 .products .product-item p {
   width: 100%;
   text-align: right;
+}
+.products .product-item h3 {
+  display: inline-block;
+}
+.products .product-item small {
+  float: right;
 }
 .products .product-item .btn-buy {
   display: flex;
