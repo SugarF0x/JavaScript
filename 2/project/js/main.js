@@ -8,23 +8,47 @@ const products = [
     {id: 5, title: 'Chair', price: 165},
 ];
 
-const renderProduct = (item) => {
-    return `<div class="product-item">
-                <h3>${item.title}</h3>
-                <img src="https://via.placeholder.com/200x100/888888/FFFFFF?text=${item.title}.jpeg" alt="placeholder">
-                <p>${item.price} ${currency}</p>
-                <div class="btn-buy">
-                    <button onclick="cart.remove(products[${item.id-1}])">-</button>
-                    <button onclick="cart.add(products[${item.id-1}])">+</button>
-                </div>
-            </div>`
-};
+//--------------------------------------------------------------------------------------------------------------------\\
 
-const renderPage = (list = [{id:0, title: 'Not Defined', price: 0}]) => {
-    document.querySelector('.products').innerHTML = list.map(item => renderProduct(item)).join('');
-};
+function screenSwap() {
+    document.getElementById('btn-swap').addEventListener("click", () => {
+        let swap = document.getElementById('btn-swap').innerText;
+        switch(swap) {
+            case 'Корзина':
+                document.getElementById('btn-swap').innerText = 'Каталог';
+                break;
+            case 'Каталог':
+                document.getElementById('btn-swap').innerText = 'Корзина';
+                break;
+        }
+    });
+}
 
 //--------------------------------------------------------------------------------------------------------------------\\
+
+class Catalog {
+    constructor(list) {
+        this.renderItemElement(list);
+    }
+
+    static _generateItemElement(item) {
+        return `<div class="product-item">
+                    <h3>${item.title}</h3>
+                    <img src="https://via.placeholder.com/200x100/888888/FFFFFF?text=${item.title}.jpeg" alt="placeholder">
+                    <p>${item.price} ${currency}</p>
+                    <button class="btn-buy" data-id="${item.id}">Добавить</button>
+                </div>`;
+    }
+
+    renderItemElement(list = [{id:0, title: 'Not Defined', price: 0}]) {
+        document.querySelector('.products').innerHTML = list.map(item => Catalog._generateItemElement(item)).join('');
+
+        let classes = document.getElementsByClassName('btn-buy');
+        Array.from(classes).forEach(element => {
+            element.addEventListener('click', () => cart.add(element.getAttribute('data-id')));
+        });
+    }
+}
 
 class Cart {
     // {id: 0, title:'name', price:0, total:0;}
@@ -32,8 +56,9 @@ class Cart {
         this.items = [];
     }
 
-    add(item) {
+    add(id) {
         let isFound = false;
+        let item = this.getItemById(parseInt(id));
 
         this.items.forEach(it => {
             if (it.id === item.id) {
@@ -53,6 +78,18 @@ class Cart {
                 it.total -= total;
             }
         });
+    }
+
+    getItemById(id) {
+        let item = null;
+
+        products.forEach(prod => {
+            if (prod.id === id) {
+                item = prod;
+            }
+        });
+
+        return item;
     }
 
     getItemsTotal() {
@@ -83,8 +120,9 @@ class Product {
 
 //--------------------------------------------------------------------------------------------------------------------\\
 
-renderPage(products);
-let cart = new Cart();
+window.onload = screenSwap();
+let cart    = new Cart();
+let catalog = new Catalog(products);
 
 // Я не успел сделать визуальную часть для корзины, но консольные функции работают как должны
 // cart.getPriceTotal() и cart.getItemsTotal() выводят суммарную цену и суммарное количество
