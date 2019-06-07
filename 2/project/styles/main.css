@@ -50,4 +50,12 @@ header .name {
   width: 100%;
   text-align: right;
 }
+.products .product-item .btn-buy {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+.products .product-item .btn-buy button {
+  width: 50%;
+}
 /*# sourceMappingURL=main.css.map */
