@@ -33,6 +33,7 @@
                         <button class="del-btn" @click="removeProduct(item)">&times</button>
                     </div>
                 </div>
+                <div v-if="cart.length === 0"><b>Корзина пуста</b></div>
             </div>
         </div>
     </header>
