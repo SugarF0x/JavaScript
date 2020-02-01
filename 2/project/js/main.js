@@ -7,7 +7,10 @@ const app = new Vue({
         products: [],
         filtered: [],
         imgCatalog: `https://placehold.it/200x150`,
-        searchLine: ''
+        imgCart: `https://placehold.it/50x100`,
+        searchLine: '',
+        isVisibleCart: false,
+        cart: []
     },
     methods: {
         getJson(url){
@@ -16,7 +19,27 @@ const app = new Vue({
                 .catch(error => console.log(error))
         },
         addProduct(product){
-            console.log(product);
+            let find = this.cart.find(el => el.id_product === product.id_product);
+            if(find){
+                find.quantity++;
+            } else {
+                let prod = Object.assign({quantity: 1}, product);
+                this.cart.push(prod);
+            }
+        },
+        removeProduct(product) {
+            let find = this.cart.find(el => el.id_product === product.id_product);
+            if(find){
+                find.quantity--;
+                if (find.quantity === 0) {
+                    const index = this.cart.indexOf(find);
+                    if (index > -1) {
+                        this.cart.splice(index, 1);
+                    }
+                }
+            } else {
+                console.log('There is no such product in cart');
+            }
         },
         filterGoods(value){
             const regexp = new RegExp(value, 'i');
