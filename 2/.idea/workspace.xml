@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b352bd-2fe3-4853-945a-0302a1c5a368" name="Default Changelist" comment="added 404 to cart as well">
-      <change afterPath="$PROJECT_DIR$/project/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/css/main.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/css/main.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/js/components.js" afterDir="false" />
+    <list default="true" id="15b352bd-2fe3-4853-945a-0302a1c5a368" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project-component/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="321">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -40,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project-component/js/ProductsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="648">
               <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="34" selection-end-column="14" />
             </state>
           </provider>
@@ -49,11 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project-component/js/CartComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-718">
-              <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-              <folding>
-                <element signature="e#634#641#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="486">
+              <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -62,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/project-component/css/main.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
-              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -125,28 +115,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-              <item name="project-component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-              <item name="project-component" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -199,7 +168,8 @@
       <workItem from="1580576094233" duration="4802000" />
       <workItem from="1580581015591" duration="207000" />
       <workItem from="1580591567813" duration="3939000" />
-      <workItem from="1580644730758" duration="7517000" />
+      <workItem from="1580644730758" duration="9452000" />
+      <workItem from="1580684755613" duration="62000" />
     </task>
     <task id="LOCAL-00001" summary="Finished filtered search">
       <created>1580576797844</created>
@@ -222,17 +192,23 @@
       <option name="project" value="LOCAL" />
       <updated>1580581215157</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Split Vue files into separate components">
+      <created>1580654297061</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580654297061</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28449000" />
+    <option name="totallyTimeSpent" value="30446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1108742" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1119403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -262,7 +238,8 @@
     <MESSAGE value="Finished filtered search" />
     <MESSAGE value="Finished cart and 404 page" />
     <MESSAGE value="added 404 to cart as well" />
-    <option name="LAST_COMMIT_MESSAGE" value="added 404 to cart as well" />
+    <MESSAGE value="Split Vue files into separate components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Split Vue files into separate components" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project/css/normalize.css">
@@ -347,9 +324,7 @@
     <entry file="file://$PROJECT_DIR$/project/js/components.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/project-component/js/components.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/project-component/js/components.js" />
     <entry file="file://$PROJECT_DIR$/lesson6_14.06/lesson6.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -400,27 +375,10 @@
     <entry file="file://$PROJECT_DIR$/project-component/css/main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/project-component/js/ProductsComponent.js">
+    <entry file="file://$PROJECT_DIR$/project-component/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project-component/js/CartComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
-          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding>
-            <element signature="e#634#641#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project-component/css/main.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="321">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -431,10 +389,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project-component/index.html">
+    <entry file="file://$PROJECT_DIR$/project-component/js/ProductsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="648">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="34" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-component/js/CartComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-component/css/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
         </state>
       </provider>
     </entry>
