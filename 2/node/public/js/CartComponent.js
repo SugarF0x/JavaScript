@@ -67,26 +67,21 @@ Vue.component('cart', {
         removeProduct(product) {
             let find = this.cart.find(el => el.id_product === product.id_product);
             if(find){
-                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: -1})
-                    .then(data => {
-                        if(data.result){
-                            find.quantity--;
-                            if (find.quantity === 0) {
-                                const index = this.cart.indexOf(find);
-                                if (index > -1) {
-                                    this.cart.splice(index, 1);
-                                }
+                if(find.quantity > 1) {
+                    this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: -1})
+                        .then(data => {
+                            if(data.result){
+                                find.quantity--;
                             }
-                        }
-                    })
-
-                // find.quantity--;
-                // if (find.quantity === 0) {
-                //     const index = this.cart.indexOf(find);
-                //     if (index > -1) {
-                //         this.cart.splice(index, 1);
-                //     }
-                // }
+                        })
+                } else {
+                    this.$parent.deleteJson(`/api/cart/${find.id_product}`)
+                        .then(data => {
+                            if(data.result){
+                                this.cart.splice(this.cart.indexOf(product),1)
+                            }
+                        })
+                }
             } else {
                 console.log('There is no such product in cart');
             }
