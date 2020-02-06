@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "nodemonConfig": {
+    "ignore":["*.json"]
+  },
   "keywords": [],
-  "author": "",
+  "author": "SGFX",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
